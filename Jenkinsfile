@@ -24,7 +24,7 @@ pipeline {
 
     environment {
         GITHUB_TOKEN = credentials('multi-branch-github')
-        GITHUB_REPO = 'mahdikheirkhah/buy-01'
+        GITHUB_REPO = 'prahimi94/buy-01'
         DOCKER_REPO = 'mahdikheirkhah'
         DOCKER_CREDENTIAL_ID = 'dockerhub-credentials'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
@@ -86,7 +86,7 @@ pipeline {
                             $class: 'GitSCM',
                             branches: [[name: "**"]],
                             userRemoteConfigs: [[
-                                url: 'https://github.com/mahdikheirkhah/buy-01.git',
+                                url: 'https://github.com/prahimi94/buy-01.git',
                                 credentialsId: 'multi-branch-github',
                                 refspec: '+refs/pull/*/head:refs/remotes/origin/PR-*'
                             ]],
@@ -102,7 +102,7 @@ pipeline {
                             $class: 'GitSCM',
                             branches: [[name: "*/${params.BRANCH}"]],
                             userRemoteConfigs: [[
-                                url: 'https://01.gritlab.ax/git/mkheirkh/safe-zone',
+                                url: 'https://01.gritlab.ax/git/prahimi/safe-zone',
                                 credentialsId: 'gitea-credentials'
                             ]],
                             extensions: [
@@ -1151,7 +1151,7 @@ EOF
                     emailext(
                         subject: "Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: message,
-                        to: 'mohammad.kheirkhah@gritlab.ax',
+                        to: 'parisa.rahimi@gritlab.ax',
                         mimeType: 'text/plain'
                     )
                     echo "Email notification sent"
@@ -1176,7 +1176,7 @@ EOF
                     emailext(
                         subject: "Build FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                         body: message,
-                        to: 'mohammad.kheirkhah@gritlab.ax',
+                        to: 'parisa.rahimi@gritlab.ax',
                         mimeType: 'text/plain'
                     )
                     echo "Email notification sent"
