@@ -1,5 +1,7 @@
 # SonarQube Project Key Fix Guide
 
+testsbddb
+
 ## Problem
 
 SonarQube is showing projects with incorrect keys:
