@@ -49,7 +49,7 @@ public class ProductService {
 
     public ProductDTO getProductByProductID(String productID) {
         Product product = productRepository.findById(productID)
-                .orElseThrow(() -> new CustomException("Product not found test..", HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new CustomException("Product not found test...", HttpStatus.NOT_FOUND));
         if (product == null) {
             return null;
         }
